@@ -1,0 +1,15 @@
+// Reverse words in a String
+//In this method we used StingBuilder class and reverse() method to reverse the each word in a string.
+//We used split() to split the words in a string at whitespace
+//reverse() is used to reverse the word and stringbuffer is used to add. trim() is used to remove any existing white spaces
+
+class Solution {
+    public String reverseWords(String s) {
+        String words[] = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for(String word: words)
+            res.append(new 
+StringBuffer(word).reverse().toString() + "");
+        return res.toString().trim();
+    }
+}
