@@ -1,0 +1,12 @@
+//Reverse Words in a string
+//Here we use trim() to remove any white spaces, we use split(" +") it shows it has to split at atleast greater than 1 pos.
+Then we use Collections.reverse()
+
+public class Solution {
+    public String reverseWords(String s) {
+        String[] words = s.trim().split(" +");
+    Collections.reverse(Arrays.asList(words));
+    return String.join(" ", words);
+      
+    }
+}
