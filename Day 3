@@ -10,3 +10,24 @@ public class Solution {
       
     }
 }
+
+
+
+//Program 2: Squares of sorted array
+
+class Solution {
+    public int[] sortedSquares(int[] A) {
+        
+        int[] res = new int[A.length];
+        int j=0;
+        for(int i=0;i<A.length;i++)
+        {
+            res[j] = A[i]*A[i];
+            j++;
+        }
+        Arrays.sort(res);
+        return res;
+        
+    }
+}
+
