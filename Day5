@@ -1,0 +1,21 @@
+//to count the sum of maximum subarrays using dynaic programmming
+
+//We use dynamic programming concept to solve the problem, here we define a new array and we compute the sum of all the previus plus the current one and then compare the values between these two
+//and generate the maximum value.
+class Solution {
+    public int maxSubArray(int[] nums) {
+
+        int[] sum  = new int[nums.length];
+
+        int max= nums[0];
+        sum[0]  = nums[0];
+
+        for(int i=1;i<nums.length;i++)
+        {
+            sum[i] = Math.max(sum[i-1]+nums[i], nums[i]);
+            max = Math.max(max, sum[i]);
+        }
+
+
+        return max;
+    }}
