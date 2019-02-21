@@ -1,0 +1,20 @@
+//This 2 sum program can be solved using two approches
+//First approach: Using two for loops, we iterate but the time complexity is O(n*n)
+//To reduce the time complexity to O(n) we can use hashmap
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+    
+    Map<Integer, Integer> map = new Hashmap<Integer, Integer>();
+    for(int i=0;i<nums.length;i++)
+      map.put(nums[i],i);
+      
+     for(int i=0;i<nums.length;i++){
+        int com = target-nums[i];
+        if(map.containsKey(com) && map.get(com)!=i)
+              return int[]{i, map.get(com)};
+              }
+              throw null;
+              }}
+        
+        
