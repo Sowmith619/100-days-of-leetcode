@@ -1,0 +1,22 @@
+//Adding two adjacent nodes in a linked list
+//just add the two adjacent nodes of a linked list and return head
+//Program
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        
+        ListNode dummy = new ListNode(0);
+        ListNode first = dummy;
+        ListNode second = dummy;
+        dummy.next = head;
+        ListNode current = dummy;
+        while(first.next != null && first.next.next != null){
+        first = first.next.next;
+
+        second.next.next = first.next;
+        first.next = second.next;
+        second.next = first;
+        first = first.next;
+        second = first;
+    }
+    return dummy.next;
+}
