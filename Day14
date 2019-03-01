@@ -1,0 +1,23 @@
+// Isunival Tree compare b/w left and right trees
+// we use a recursive function to compare the values of the states, we check if the left child values equal to the root value
+
+// **
+//  * Definition for a binary tree node.
+//  * public class TreeNode {
+//  *     int val;
+//  *     TreeNode left;
+//  *     TreeNode right;
+//  *     TreeNode(int x) { val = x; }
+//  * }
+//  */
+class Solution {
+    public boolean isUnivalTree(TreeNode root) {
+
+        boolean left_correct = (root.left == null || (root.left.val==root.val && isUnivalTree(root.left)));
+        boolean right_correct = (root.right == null || (root.right.val == root.val && isUnivalTree(root.right)));
+
+        return left_correct && right_correct;
+
+
+    }
+}
