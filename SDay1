@@ -1,0 +1,11 @@
+#python convert the string to the lower case
+
+def tolower(string s):
+  arr=[];
+  for i in s:
+    if 'A'<= i <= 'z':
+        c = chr(ord(i)+32)
+         arr.append(c)
+     else:
+        arr.append(i)
+    return ("".join(arr))
