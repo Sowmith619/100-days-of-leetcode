@@ -1,0 +1,37 @@
+#Flipping an image
+
+
+class Solution:
+    def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        
+        if not A:
+            return []
+        
+        list2=[]
+        for word in A:
+            word.reverse()
+            list1=[]
+            for s in word:
+                if(s==0):
+                    s=1
+                    
+                else:
+                    s=0
+                list1.append(s)
+            list2.append(list1)
+        return list2
+        
+        
+        #Second and possibly best appraoch
+        
+        
+      class Solution(object):
+    def flipAndInvertImage(self, A):
+        for row in A:
+            for i in xrange((len(row) + 1) / 2):
+                """
+                In Python, the shortcut row[~i] = row[-i-1] = row[len(row) - 1 - i]
+                helps us find the i-th value of the row, counting from the right.
+                """
+                row[i], row[~i] = row[~i] ^ 1, row[i] ^ 1
+        return A
