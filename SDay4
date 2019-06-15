@@ -1,0 +1,42 @@
+807. Max Increase to Keep City Skyline
+Medium
+
+524
+
+130
+
+Favorite
+
+Share
+In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. 
+
+At the end, the "skyline" when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city's skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example.
+
+What is the maximum total sum that the height of the buildings can be increased?
+
+Example:
+Input: grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
+Output: 35
+Explanation: 
+The grid is:
+[ [3, 0, 8, 4], 
+  [2, 4, 5, 7],
+  [9, 2, 6, 3],
+  [0, 3, 1, 0] ]
+  
+  
+  sol:
+  
+  class Solution:
+    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
+        
+        row_maxes = [max(row) for row in grid]
+        col_maxes = [max(col) for col in zip(*grid)]
+        
+        print(row_maxes)
+        print(col_maxes)
+        return sum(min(row_maxes[r],col_maxes[c])-val
+                  for r, row in enumerate(grid)
+                  for c, val in enumerate(row))
+                  
+  #max(col) for col in zip(*grid) gives the maximim value of each row and col in grid
