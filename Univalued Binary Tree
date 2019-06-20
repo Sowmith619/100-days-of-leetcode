@@ -1,0 +1,46 @@
+965. Univalued Binary Tree
+Easy
+
+A binary tree is univalued if every node in the tree has the same value.
+
+Return true if and only if the given tree is univalued.
+Example 1:
+
+Input: [1,1,1,1,1,null,1]
+Output: true
+
+
+Approach 1 DFS retur method:
+
+In the dfs method of traversal we use stack.
+In the stack we append root.val
+
+class Solution:
+    def isUnivalTree(self, root: TreeNode) -> bool:
+    
+    vals=[]
+    
+    def dfs(node):
+      if node:
+        vals.append(node.val)
+        return dfs(node.left)
+        return dfs(node.right)
+    dfs(root)
+    return len(set(vals))==1
+    
+    
+    
+ 
+ #2 approach recursion:
+
+ class Solution:
+    def isUnivalTree(self, root: TreeNode) -> bool:
+      right_correct= (not root.right or root.right.val == root.val == root and self.isUnivalTree(root.right))
+      left_correct = (not root.left or root.left.val == root.val == root and self.isUnivalTree(root.left))
+    return right_correct and left_correct
+      
+    
+    
+ 
+    
+        
