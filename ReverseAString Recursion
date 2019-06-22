@@ -1,0 +1,8 @@
+def recursion(string):
+  
+  #Base case
+  if(len(string)==1):
+    return string
+    
+   else:
+    return recursion(string[1:] +s[0]
