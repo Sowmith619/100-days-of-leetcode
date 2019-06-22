@@ -1,0 +1,65 @@
+Linked list:
+
+Linked list can store the elements dynamically when compared with arrays.
+They don't need to be stored in a contigious memory. It can be stored in various parts of memory
+
+Disadvantages:
+Linked list have linear look up time. They are low level data structures in python and are rarely used.
+
+Implementation of LinkedList:
+
+
+class Node:
+  def __init__(self, val):
+    self.val= val
+    self.next=None
+    
+  node1 = Node(12)
+  node2=Node(99)
+  node3=Node(121)
+  
+  node1.next= node2
+  node2.next = node3
+  
+  
+  That's it that is the implementation of a Linked List
+  
+  
+ Double Linked List:
+ 
+ In double linked list we have
+ 
+ class Node:
+    def __init__(self,val):
+      self.val=val
+      self.next=None
+      self.prev=None
+      
+    node1 = Node(12)
+    node2 = Node(13)
+    node3 = Node(15)
+    
+    
+    node1.prev=None
+    node1.next=node2
+    node2.next = node3
+    node2.prev=node1
+  
+
+#Traversing a linked list:
+class Node 
+ ...
+ 
+ def traverse(self):
+  node=self
+  while Node!=None:
+    print node.val
+    node1=node2.next
+   
+  
+ 
+
+  
+    
+  
+    
