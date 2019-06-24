@@ -1,0 +1,201 @@
+#1. Reverse a linked list
+
+For reversing a linked list it can be done using recursion and iteration
+
+Iteration method:
+
+class ListNode:
+  ListNode head
+  self.next
+  
+def ReverseList(node):
+  curr = head
+  prev = None
+  while curr:
+    nextTemp = curr.next
+    curr.next= prev
+    prev = curr
+    curr = nextTemp
+  return prev
+    
+    
+    
+#2 iterative solution
+
+class Solution:
+    def reverseList(self, head):
+        if not head or not head.next:
+            return head
+        
+        new_head = self.reverseList(head.next)
+        next_node = head.next    #        head -> next_node 
+        next_node.next = head    #        head <- next_node 
+        head.next = None         # [x] <- head <- next_node 
+        return new_head
+        
+        
+ 2. Middle element of  a linked list:
+ class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        
+        A = [head]
+        while A[-1].next:
+            
+            A.append(A[-1].next)
+        return A[len(A) // 2]
+        
+ 3. Delete node in a linked list
+ 
+ # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        
+        if node.next is not None:
+            
+            node.val, node.next = node.next.val, node.next.next
+            
+           
+           
+  4. Merge two sorted lists:
+  
+  
+  # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        
+        if not l1 or not l2:
+            return l1 or l2
+        if l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next,l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
+            
+            
+            
+            
+            
+  5. Linked List cycle
+  Given a linked list, determine if it has a cycle in it.
+
+To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+
+ Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
+  
+  
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def hasCycle(self, head):
+        
+        fast = slow = head
+
+        while slow and fast and fast.next:
+            slow = slow.next                # Step of 1
+            fast = fast.next.next           # Setp of 2
+
+            if slow is fast:                # Checking whether two pointers meet
+                return True
+
+        return False
+        
+        
+6. Palindrome LinkedList
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        
+        if not head or not head.next:
+            return True
+        
+        
+        cur=slow = fast = head
+        while  fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        
+        #pushing the values into the stack
+        stack=[slow.val]
+        while slow and slow.next:
+            slow = slow.next
+            stack.append(slow.val)
+        print(stack)
+        
+        
+        while stack:
+            print(cur.val)
+            if stack.pop()!=cur.val:
+                return False
+            cur=cur.next
+        return True
+            
+            
+        
+  7. Remove LinkedList elements
+  
+  Remove all elements from a linked list of integers that have value val.
+
+Example:
+
+Input:  1->2->6->3->4->5->6, val = 6
+Output: 1->2->3->4->5
+   
+   # Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def removeElements(self, head, val):
+        """
+        :type head: ListNode
+        :type val: int
+        :rtype: ListNode
+        """
+        dummy_head = ListNode(-1)
+        dummy_head.next = head
+        
+        current_node = dummy_head
+        while current_node.next != None:
+            if current_node.next.val == val:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
+                
+        return dummy_head.next
+   
+   
